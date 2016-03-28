@@ -27,6 +27,10 @@ else
     chmod -R 770 /var/run/mysqld
 fi
 
+if [ -n "$APP_DIR" ];then
+    rm -f /var/www/html && ln -s $APP_DIR /var/www/html
+fi
+
 sed -i "s/bind-address.*/bind-address = 0.0.0.0/" /etc/mysql/my.cnf
 sed -i "s/user.*/user = www-data/" /etc/mysql/my.cnf
 

@@ -56,7 +56,7 @@ ADD apache_default /etc/apache2/sites-available/000-default.conf
 RUN a2enmod rewrite
 
 # Configure /app folder with sample app
-RUN mkdir -p /app && rm -fr /var/www/html && ln -s /app /var/www/html
+RUN mkdir -p /app/web && rm -fr /var/www/html && ln -s /app/web /var/www/html
 ADD app/ /app
 
 #Environment variables to configure php
